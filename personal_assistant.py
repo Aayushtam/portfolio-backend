@@ -71,7 +71,7 @@ def get_agent():
 def respond_to_query(user_input: str) -> str:
     """Invoke the agent with a user message and return text reply."""
     agent = get_agent()
-    response = agent.stream({'messages': [{'role': 'user', 'content': user_input}]}, {"configurable": {"thread_id": "1"}})
+    response = agent.invoke({'messages': [{'role': 'user', 'content': user_input}]}, {"configurable": {"thread_id": "1"}})
     # Try to extract text content robustly
     try:
         return response['messages'][-1].content
